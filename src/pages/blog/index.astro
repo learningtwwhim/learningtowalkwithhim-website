@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { FORMAT_LABELS } from '../../consts.js';
+
+const posts = (await getCollection('blog', ({ data }) => data.draft !== true))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout
+  title="Blog"
+  description="Stories, scriptures, and reflections on walking with the Savior."
+>
+  <section class="bg-cream">
+    <div class="mx-auto max-w-4xl px-4 py-16 md:py-24">
+      <p class="text-gold uppercase tracking-widest text-sm font-semibold mb-3">Blog</p>
+      <h1 class="font-heading text-4xl md:text-5xl text-navy mb-4">
+        Stories, scripture, and slow walks
+      </h1>
+      <p class="text-lg text-ink/85 mb-12 max-w-2xl">
+        Short reflections on faith, focus, and the Savior's love. New posts most Mondays.
+      </p>
+
+      {posts.length === 0 && (
+        <p class="text-ink/70 italic">No posts yet — check back soon.</p>
+      )}
+
+      <ul class="list-none p-0 m-0 grid gap-6">
+        {posts.map((post) => (
+          <li>
+            <a
+              href={`/blog/${post.id}/`}
+              class="block bg-white border border-navy/10 rounded-lg p-6 md:p-8 no-underline hover:border-gold hover:shadow-md transition"
+            >
+              <div class="flex items-center gap-3 text-sm mb-2">
+                <span class="text-gold uppercase tracking-widest font-semibold text-xs">
+                  {FORMAT_LABELS[post.data.format]}
+                </span>
+                <span class="text-ink/40">·</span>
+                <span class="text-ink/60"><FormattedDate date={post.data.date} /></span>
+              </div>
+              <h2 class="font-heading text-2xl md:text-3xl text-navy mb-2 leading-tight">
+                {post.data.title}
+              </h2>
+              <p class="text-ink/80 m-0">{post.data.excerpt}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,68 @@
+---
+import { SITE_TITLE, AUTHOR, SOCIAL_LINKS, CONTACT_EMAIL } from '../consts.js';
+
+const year = new Date().getFullYear();
+
+// Inline icon paths keyed by social-link name.
+const ICONS = {
+  Instagram:
+    'M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.96.24 2.42.4.6.23 1.04.51 1.5.97.45.45.74.89.96 1.5.16.45.35 1.24.4 2.41.06 1.26.07 1.64.07 4.85s0 3.6-.07 4.85c-.05 1.17-.24 1.96-.4 2.42a4.1 4.1 0 0 1-.97 1.5 4.1 4.1 0 0 1-1.5.96c-.46.16-1.25.35-2.42.4-1.25.06-1.63.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.96-.24-2.42-.4a4.1 4.1 0 0 1-1.5-.97 4.1 4.1 0 0 1-.96-1.5c-.16-.46-.35-1.25-.4-2.42-.06-1.25-.07-1.63-.07-4.85s0-3.6.07-4.85c.05-1.17.24-1.96.4-2.41.23-.61.51-1.05.97-1.5.45-.46.89-.74 1.5-.97.45-.16 1.24-.35 2.41-.4 1.26-.06 1.64-.07 4.85-.07Zm0 1.95c-3.16 0-3.5 0-4.74.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.26.82-.38.38-.62.75-.82 1.26-.15.39-.33.97-.38 2.04-.06 1.24-.07 1.58-.07 4.74s.01 3.5.07 4.74c.05 1.07.23 1.65.38 2.04.2.51.44.88.82 1.26.38.38.75.62 1.26.82.39.15.97.33 2.04.38 1.24.06 1.58.07 4.74.07s3.5 0 4.74-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.26-.82.38-.38.62-.75.82-1.26.15-.39.33-.97.38-2.04.06-1.24.07-1.58.07-4.74s-.01-3.5-.07-4.74c-.05-1.07-.23-1.65-.38-2.04a3.4 3.4 0 0 0-.82-1.26 3.4 3.4 0 0 0-1.26-.82c-.39-.15-.97-.33-2.04-.38-1.24-.06-1.58-.07-4.74-.07Zm0 3.32a4.53 4.53 0 1 1 0 9.06 4.53 4.53 0 0 1 0-9.06Zm0 1.95a2.58 2.58 0 1 0 0 5.16 2.58 2.58 0 0 0 0-5.16Zm5.78-2.17a1.06 1.06 0 1 1-2.12 0 1.06 1.06 0 0 1 2.12 0Z',
+  TikTok:
+    'M19.6 7.5a6.5 6.5 0 0 1-3.8-1.2v8.45a5.75 5.75 0 1 1-5-5.7v2.4a3.4 3.4 0 1 0 2.6 3.3V2h2.4a4.1 4.1 0 0 0 4.1 4v1.5h-.3Z',
+  Facebook:
+    'M22 12a10 10 0 1 0-11.56 9.88V14.9H7.9V12h2.54V9.8c0-2.5 1.5-3.9 3.78-3.9 1.1 0 2.24.2 2.24.2v2.46h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.9h-2.33v6.98A10 10 0 0 0 22 12Z',
+  YouTube:
+    'M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.27 5 12 5 12 5s-6.27 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.73 19 12 19 12 19s6.27 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77c.27-1.58.4-3.18.4-4.8a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3-5.2 3Z',
+};
+---
+
+<footer class="bg-navy text-cream mt-24">
+  <div class="mx-auto max-w-6xl px-4 py-12 grid gap-8 md:grid-cols-3">
+    <div>
+      <p class="font-heading text-xl mb-2 text-cream">{SITE_TITLE}</p>
+      <p class="text-sm text-cream/80 m-0">by {AUTHOR}</p>
+      <p class="text-sm text-cream/80 mt-2">
+        <a href={`mailto:${CONTACT_EMAIL}`} class="text-cream underline hover:text-gold">{CONTACT_EMAIL}</a>
+      </p>
+    </div>
+
+    <div>
+      <p class="font-heading text-lg mb-3 text-cream">Follow along</p>
+      <ul class="flex gap-4 list-none p-0 m-0">
+        {SOCIAL_LINKS.map((s) => (
+          <li>
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-cream/10 hover:bg-gold hover:text-navy text-cream transition-colors no-underline"
+              aria-label={s.name}
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d={ICONS[s.name]}></path>
+              </svg>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="text-sm text-cream/80">
+      <p class="font-heading text-lg mb-3 text-cream">More</p>
+      <ul class="list-none p-0 m-0 space-y-1">
+        <li><a href="/book" class="text-cream/90 hover:text-gold">The Book</a></li>
+        <li><a href="/about" class="text-cream/90 hover:text-gold">About Ken</a></li>
+        <li><a href="/speaking" class="text-cream/90 hover:text-gold">Speaking</a></li>
+        <li><a href="/contact" class="text-cream/90 hover:text-gold">Contact</a></li>
+        <li><a href="/privacy" class="text-cream/90 hover:text-gold">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-cream/15">
+    <div class="mx-auto max-w-6xl px-4 py-4 text-xs text-cream/70 flex flex-wrap justify-between gap-2">
+      <span>&copy; {year} {AUTHOR}. All rights reserved.</span>
+      <span>Built with Astro.</span>
+    </div>
+  </div>
+</footer>

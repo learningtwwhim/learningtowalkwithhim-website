@@ -1,0 +1,53 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { FORMAT_LABELS } from '../consts.js';
+
+const { title, date, format, excerpt } = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={excerpt}
+  type="article"
+  publishedTime={date.toISOString()}
+>
+  <article class="bg-cream">
+    <div class="mx-auto max-w-3xl px-4 py-16 md:py-20">
+      <a href="/blog" class="text-sm text-navy/70 hover:text-gold no-underline">&larr; All posts</a>
+
+      <div class="mt-6 mb-8">
+        <p class="text-gold uppercase tracking-widest text-xs font-semibold mb-2">
+          {FORMAT_LABELS[format]}
+        </p>
+        <h1 class="font-heading text-4xl md:text-5xl text-navy leading-tight mb-3">
+          {title}
+        </h1>
+        <p class="text-sm text-ink/60">
+          <FormattedDate date={date} />
+        </p>
+      </div>
+
+      {excerpt && (
+        <p class="text-xl italic text-ink/80 border-l-4 border-gold pl-4 mb-8">
+          {excerpt}
+        </p>
+      )}
+
+      <div class="prose">
+        <slot />
+      </div>
+
+      <hr class="my-12 border-navy/10" />
+
+      <div class="text-center">
+        <a
+          href="/blog"
+          class="inline-block rounded-md border border-navy text-navy px-5 py-2 font-medium hover:bg-navy hover:text-cream no-underline"
+        >
+          More posts
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

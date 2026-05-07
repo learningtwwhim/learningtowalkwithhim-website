@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR } from '../consts.js';
+---
+
+<BaseLayout
+  title={null}
+  description={`${BOOK_TITLE}: ${BOOK_SUBTITLE}. By ${AUTHOR}.`}
+>
+  <!-- HERO -->
+  <section class="bg-cream">
+    <div class="mx-auto max-w-6xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <!-- Book cover placeholder -->
+      <div class="order-2 md:order-1">
+        <div class="aspect-[2/3] w-full max-w-sm mx-auto bg-navy text-cream rounded-md shadow-2xl flex flex-col items-center justify-center p-8 text-center">
+          <p class="text-xs uppercase tracking-widest text-gold mb-4">Book Cover</p>
+          <p class="font-heading text-3xl leading-tight mb-2">{BOOK_TITLE}</p>
+          <p class="text-sm text-cream/80 italic">{BOOK_SUBTITLE}</p>
+          <p class="text-sm mt-6 text-cream/70">{AUTHOR}</p>
+          <p class="text-[10px] uppercase tracking-widest text-cream/50 mt-8">
+            Replace /public/book-cover.jpg
+          </p>
+        </div>
+      </div>
+
+      <!-- Headline + email form -->
+      <div class="order-1 md:order-2">
+        <p class="text-gold uppercase tracking-widest text-sm font-semibold mb-4">A new book by {AUTHOR}</p>
+        <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl leading-tight text-navy mb-4">
+          From Reluctant Missionary to Devoted Disciple
+        </h1>
+        <p class="text-lg md:text-xl text-ink/80 mb-8">
+          Lessons of faith, focus, and the Savior's love — drawn from one missionary's journey,
+          and an invitation to walk with Him in your own.
+        </p>
+
+        <!-- ConvertKit email form placeholder -->
+        <form
+          action="https://app.kit.com/forms/REPLACE_ME/subscriptions"
+          method="post"
+          data-sv-form="REPLACE_ME"
+          data-uid="REPLACE_ME"
+          class="bg-white border border-navy/15 rounded-lg p-5 md:p-6 shadow-sm"
+        >
+          <label for="ck-email" class="block font-heading text-xl text-navy mb-2">
+            Get the first chapter free
+          </label>
+          <p class="text-sm text-ink/70 mb-4">
+            Join the email list for new posts, book updates, and the prologue delivered to your inbox.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-2">
+            <input
+              id="ck-email"
+              type="email"
+              name="email_address"
+              required
+              placeholder="you@example.com"
+              class="flex-1 rounded-md border border-navy/20 px-3 py-2 bg-cream/30 text-ink focus:outline-none focus:ring-2 focus:ring-gold"
+            />
+            <button
+              type="submit"
+              class="rounded-md bg-navy text-cream px-5 py-2 font-medium hover:bg-gold hover:text-navy transition-colors"
+            >
+              Send it to me
+            </button>
+          </div>
+          <p class="text-xs text-ink/60 mt-3">
+            No spam. Unsubscribe anytime. See our <a href="/privacy" class="underline">privacy policy</a>.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENDORSEMENTS STRIP -->
+  <section class="bg-navy text-cream">
+    <div class="mx-auto max-w-6xl px-4 py-12 grid gap-8 md:grid-cols-3">
+      <figure class="text-center md:text-left">
+        <blockquote class="font-heading text-xl italic leading-snug">
+          "A tender, honest invitation to discipleship."
+        </blockquote>
+        <figcaption class="mt-2 text-sm text-cream/70">— Endorser Name, Title</figcaption>
+      </figure>
+      <figure class="text-center md:text-left">
+        <blockquote class="font-heading text-xl italic leading-snug">
+          "Ken writes with humility and conviction."
+        </blockquote>
+        <figcaption class="mt-2 text-sm text-cream/70">— Endorser Name, Title</figcaption>
+      </figure>
+      <figure class="text-center md:text-left">
+        <blockquote class="font-heading text-xl italic leading-snug">
+          "I'll be returning to these lessons for years."
+        </blockquote>
+        <figcaption class="mt-2 text-sm text-cream/70">— Endorser Name, Title</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- WHAT THE BOOK IS -->
+  <section class="bg-cream">
+    <div class="mx-auto max-w-4xl px-4 py-16 md:py-20">
+      <h2 class="font-heading text-3xl md:text-4xl text-navy mb-6">What the book is</h2>
+      <p class="text-lg text-ink/85 mb-4">
+        <em>Learning to Walk with Him</em> is part memoir, part field guide for discipleship.
+        It tells the story of a reluctant young missionary who discovered, slowly and through
+        many missteps, that following the Savior is not about perfect performance — it is
+        about a deepening walk.
+      </p>
+      <p class="text-lg text-ink/85">
+        Through five lessons — on faith, focus, surrender, repentance, and the Savior's love —
+        Ken offers practical, scripturally-rooted invitations to walk a little closer to Christ
+        each day.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="bg-white border-y border-navy/10">
+    <div class="mx-auto max-w-4xl px-4 py-16 md:py-20">
+      <h2 class="font-heading text-3xl md:text-4xl text-navy mb-8">Who it's for</h2>
+      <ul class="grid md:grid-cols-2 gap-6 list-none p-0">
+        <li class="border-l-4 border-gold pl-4">
+          <p class="font-heading text-xl text-navy mb-1">Returned and current missionaries</p>
+          <p class="text-ink/80">Anyone who has ever felt unworthy of the calling — and is ready to keep walking anyway.</p>
+        </li>
+        <li class="border-l-4 border-gold pl-4">
+          <p class="font-heading text-xl text-navy mb-1">Parents and youth leaders</p>
+          <p class="text-ink/80">Looking for honest stories that frame faith as a relationship, not a performance.</p>
+        </li>
+        <li class="border-l-4 border-gold pl-4">
+          <p class="font-heading text-xl text-navy mb-1">Disciples in any season</p>
+          <p class="text-ink/80">Whether you're stepping back, starting over, or steady — these lessons meet you where you are.</p>
+        </li>
+        <li class="border-l-4 border-gold pl-4">
+          <p class="font-heading text-xl text-navy mb-1">Skeptics willing to read with an open heart</p>
+          <p class="text-ink/80">No shame, no pressure — just an invitation to walk and see.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- AUTHOR BIO -->
+  <section class="bg-cream">
+    <div class="mx-auto max-w-4xl px-4 py-16 md:py-20 grid md:grid-cols-[1fr_2fr] gap-10 items-start">
+      <div>
+        <div class="aspect-square w-48 rounded-full bg-green/20 border-4 border-green/30 mx-auto md:mx-0 flex items-center justify-center">
+          <span class="text-green font-heading text-xl">Author Photo</span>
+        </div>
+      </div>
+      <div>
+        <h2 class="font-heading text-3xl md:text-4xl text-navy mb-4">About {AUTHOR}</h2>
+        <p class="text-lg text-ink/85 mb-4">
+          Ken Smith writes about faith for the long, ordinary middle of the journey. A husband,
+          father, and lifelong student of the scriptures, he served a full-time mission as a
+          young man and has spent the years since learning what it actually means to walk with
+          the Savior — one stubborn, hopeful step at a time.
+        </p>
+        <p class="text-lg text-ink/85 mb-6">
+          He lives with his family and shares short reflections, stories, and scripture studies
+          on the blog and across social media.
+        </p>
+        <a
+          href="/about"
+          class="inline-block rounded-md border border-navy text-navy px-5 py-2 font-medium hover:bg-navy hover:text-cream no-underline"
+        >
+          Read more about Ken
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

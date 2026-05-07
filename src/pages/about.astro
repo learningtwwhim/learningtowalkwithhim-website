@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { AUTHOR } from '../consts.js';
+---
+
+<BaseLayout
+  title="About"
+  description={`About ${AUTHOR}, author of Learning to Walk with Him.`}
+>
+  <section class="bg-cream">
+    <div class="mx-auto max-w-4xl px-4 py-16 md:py-24">
+      <p class="text-gold uppercase tracking-widest text-sm font-semibold mb-3">About</p>
+      <h1 class="font-heading text-4xl md:text-5xl text-navy mb-8">{AUTHOR}</h1>
+
+      <div class="grid md:grid-cols-[1fr_2fr] gap-10 items-start">
+        <div>
+          <div class="aspect-square w-full max-w-xs rounded-md bg-green/20 border-4 border-green/30 flex items-center justify-center">
+            <span class="text-green font-heading text-xl">Author Photo</span>
+          </div>
+        </div>
+
+        <div class="prose">
+          <p class="text-xl text-ink/90">
+            I'm a husband, a father, and a slow learner of the gospel. <em>Learning to Walk
+            with Him</em> is the book I wish someone had handed me on my mission — and the
+            book I'm still trying to live, a little more honestly each year.
+          </p>
+
+          <h2>The short version</h2>
+          <p>
+            I served a full-time mission as a young man, came home, married my best friend,
+            and started the long, ordinary work of building a life of faith inside a normal
+            week. Most of what I've learned about discipleship I've learned the hard way:
+            in repentance, in prayer at 2am, in the middle of seasons that didn't go to plan.
+          </p>
+
+          <h2>What I write about</h2>
+          <ul>
+            <li>Stories from mission and from the years that followed</li>
+            <li>Slow, devotional reading of scripture — Old Testament, New Testament, Book of Mormon</li>
+            <li>The five lessons at the heart of the book: faith, focus, surrender, repentance, and the Savior's love</li>
+            <li>Practical disciplines for ordinary disciples: prayer, study, service, rest</li>
+          </ul>
+
+          <h2>Beyond the book</h2>
+          <p>
+            I share short reflections almost daily on Instagram, TikTok, Facebook, and YouTube
+            — usually a single scripture, a story, or a question worth sitting with. The
+            <a href="/blog">blog</a> is the longer-form home for the same conversation.
+          </p>
+
+          <h2>Speaking &amp; firesides</h2>
+          <p>
+            I speak at firesides, ward and stake events, youth conferences, and missionary
+            preparation gatherings. If you'd like to invite me to speak, please <a href="/contact">get in touch</a>
+            — I read every message.
+          </p>
+
+          <h2>A note on tone</h2>
+          <p>
+            This is a place for honesty, not pressure. If you've stepped back from faith,
+            you're welcome here. If you're steady and serving, you're welcome here. If you're
+            somewhere in the middle — like most of us — you're especially welcome.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

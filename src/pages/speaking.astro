@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { AUTHOR, CONTACT_EMAIL } from '../consts.js';
+---
+
+<BaseLayout
+  title="Speaking"
+  description={`Invite ${AUTHOR} to speak at firesides, youth conferences, missionary preparation, and other events.`}
+>
+  <section class="bg-cream">
+    <div class="mx-auto max-w-4xl px-4 py-16 md:py-24">
+      <p class="text-gold uppercase tracking-widest text-sm font-semibold mb-3">Speaking</p>
+      <h1 class="font-heading text-4xl md:text-5xl text-navy mb-4">
+        Invite Ken to speak
+      </h1>
+      <p class="text-lg text-ink/85 mb-12 max-w-2xl">
+        I love speaking to small groups and large ones — youth, young adults, missionaries,
+        couples, and anyone working out faith in real life. Below are the talks I'm most often
+        asked to give.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-16">
+        <div class="bg-white border border-navy/10 rounded-lg p-6">
+          <h2 class="font-heading text-2xl text-navy mb-2">Reluctant Disciples</h2>
+          <p class="text-ink/80 m-0">
+            For young adults and missionaries — what to do when faith feels heavy and you're
+            tempted to step back.
+          </p>
+        </div>
+        <div class="bg-white border border-navy/10 rounded-lg p-6">
+          <h2 class="font-heading text-2xl text-navy mb-2">Five Lessons of the Walk</h2>
+          <p class="text-ink/80 m-0">
+            A fireside built around the five lessons of the book — adaptable for stake events,
+            firesides, or training meetings.
+          </p>
+        </div>
+        <div class="bg-white border border-navy/10 rounded-lg p-6">
+          <h2 class="font-heading text-2xl text-navy mb-2">Missionary Preparation</h2>
+          <p class="text-ink/80 m-0">
+            For prospective missionaries and their parents — practical, honest, scripture-based.
+          </p>
+        </div>
+        <div class="bg-white border border-navy/10 rounded-lg p-6">
+          <h2 class="font-heading text-2xl text-navy mb-2">Custom topics</h2>
+          <p class="text-ink/80 m-0">
+            Have a theme in mind for your event? Tell me about it — I'm happy to build something
+            new.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-navy text-cream rounded-lg p-8 md:p-10">
+        <h2 class="font-heading text-3xl text-cream mb-3">Book Ken</h2>
+        <p class="text-cream/85 mb-6">
+          Send a note via the contact page, or email me directly at
+          <a href={`mailto:${CONTACT_EMAIL}`} class="text-gold underline">{CONTACT_EMAIL}</a>.
+          Please include the date, location, audience, and a sense of the topic.
+        </p>
+        <a
+          href="/contact"
+          class="inline-block rounded-md bg-gold text-navy font-semibold px-5 py-2.5 hover:bg-cream no-underline transition-colors"
+        >
+          Send a speaking inquiry
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

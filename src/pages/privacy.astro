@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_TITLE, CONTACT_EMAIL } from '../consts.js';
+
+const lastUpdated = 'May 6, 2026';
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description={`Privacy policy for ${SITE_TITLE}.`}
+>
+  <section class="bg-cream">
+    <div class="mx-auto max-w-3xl px-4 py-16 md:py-24">
+      <p class="text-gold uppercase tracking-widest text-sm font-semibold mb-3">Privacy</p>
+      <h1 class="font-heading text-4xl md:text-5xl text-navy mb-2">Privacy Policy</h1>
+      <p class="text-sm text-ink/60 mb-10">Last updated: {lastUpdated}</p>
+
+      <div class="prose">
+        <p>
+          This privacy policy explains what information we collect on
+          <strong>learningtowalkwithhim.com</strong> and how we use it. If anything here is
+          unclear, please email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+        </p>
+
+        <h2>What we collect</h2>
+        <ul>
+          <li>
+            <strong>Email address</strong> — when you subscribe to the email list or send us
+            a message through the contact form.
+          </li>
+          <li>
+            <strong>Your message</strong> — the contents of any contact-form submission.
+          </li>
+          <li>
+            <strong>Standard server logs</strong> — IP address, browser, referring page,
+            and pages visited, kept for security and basic analytics.
+          </li>
+        </ul>
+
+        <h2>How we use it</h2>
+        <ul>
+          <li>To send you the emails you signed up for.</li>
+          <li>To respond to your messages.</li>
+          <li>To understand which posts and pages are useful, in aggregate.</li>
+        </ul>
+
+        <h2>What we do NOT do</h2>
+        <ul>
+          <li>We do not sell your personal information to anyone, ever.</li>
+          <li>We do not share your email with third parties for their marketing.</li>
+        </ul>
+
+        <h2>Email list</h2>
+        <p>
+          The email list is managed through a third-party provider (Kit / ConvertKit). You
+          can unsubscribe at any time using the link at the bottom of every email.
+        </p>
+
+        <h2>Cookies &amp; analytics</h2>
+        <p>
+          We may use a privacy-respecting analytics tool to count page visits in aggregate.
+          We do not use advertising cookies or cross-site tracking.
+        </p>
+
+        <h2>Children</h2>
+        <p>
+          This site is intended for general audiences and is not directed at children under 13.
+          We do not knowingly collect information from children.
+        </p>
+
+        <h2>Your rights</h2>
+        <p>
+          You can ask us at any time to (a) tell you what information we hold about you,
+          (b) correct it, or (c) delete it. Email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+          and we will take care of it.
+        </p>
+
+        <h2>Changes to this policy</h2>
+        <p>
+          If this policy changes, we will update the date at the top of this page.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

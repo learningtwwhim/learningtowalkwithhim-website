@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CONTACT_EMAIL, AUTHOR } from '../consts.js';
+---
+
+<BaseLayout
+  title="Contact"
+  description={`Get in touch with ${AUTHOR}.`}
+>
+  <section class="bg-cream">
+    <div class="mx-auto max-w-3xl px-4 py-16 md:py-24">
+      <p class="text-gold uppercase tracking-widest text-sm font-semibold mb-3">Contact</p>
+      <h1 class="font-heading text-4xl md:text-5xl text-navy mb-4">Let's talk</h1>
+      <p class="text-lg text-ink/85 mb-10">
+        Speaking inquiries, podcast invitations, bulk-order questions, reader notes,
+        or just a hello — fill out the form below or email
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. I read every message.
+      </p>
+
+      <!--
+        This form posts to Formspree by default. Replace YOUR_FORM_ID below with your
+        Formspree form ID, or change the action to any other form-handling endpoint
+        (Netlify Forms, Basin, etc.).
+      -->
+      <form
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+        class="grid gap-5 bg-white border border-navy/15 rounded-lg p-6 md:p-8 shadow-sm"
+      >
+        <div class="grid md:grid-cols-2 gap-5">
+          <label class="block">
+            <span class="block text-sm font-medium text-navy mb-1">Name</span>
+            <input
+              type="text"
+              name="name"
+              required
+              class="w-full rounded-md border border-navy/20 px-3 py-2 bg-cream/30 focus:outline-none focus:ring-2 focus:ring-gold"
+            />
+          </label>
+
+          <label class="block">
+            <span class="block text-sm font-medium text-navy mb-1">Email</span>
+            <input
+              type="email"
+              name="email"
+              required
+              class="w-full rounded-md border border-navy/20 px-3 py-2 bg-cream/30 focus:outline-none focus:ring-2 focus:ring-gold"
+            />
+          </label>
+        </div>
+
+        <label class="block">
+          <span class="block text-sm font-medium text-navy mb-1">What is this about?</span>
+          <select
+            name="topic"
+            class="w-full rounded-md border border-navy/20 px-3 py-2 bg-cream/30 focus:outline-none focus:ring-2 focus:ring-gold"
+          >
+            <option>Speaking / fireside invitation</option>
+            <option>Podcast / interview</option>
+            <option>Bulk orders / signed copies</option>
+            <option>Reader note</option>
+            <option>Press / media</option>
+            <option>Something else</option>
+          </select>
+        </label>
+
+        <label class="block">
+          <span class="block text-sm font-medium text-navy mb-1">Message</span>
+          <textarea
+            name="message"
+            rows="6"
+            required
+            class="w-full rounded-md border border-navy/20 px-3 py-2 bg-cream/30 focus:outline-none focus:ring-2 focus:ring-gold"
+          ></textarea>
+        </label>
+
+        <!-- honeypot for basic spam protection -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
+        <div class="flex items-center justify-between gap-4 flex-wrap">
+          <p class="text-xs text-ink/60">
+            By submitting, you agree to our <a href="/privacy" class="underline">privacy policy</a>.
+          </p>
+          <button
+            type="submit"
+            class="rounded-md bg-navy text-cream px-6 py-2.5 font-medium hover:bg-gold hover:text-navy transition-colors"
+          >
+            Send message
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

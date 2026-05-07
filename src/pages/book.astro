@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR, AMAZON_URL } from '../consts.js';
+---
+
+<BaseLayout
+  title="The Book"
+  description={`About ${BOOK_TITLE}: ${BOOK_SUBTITLE}.`}
+>
+  <section class="bg-cream">
+    <div class="mx-auto max-w-6xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-start">
+      <!-- Cover -->
+      <div class="md:sticky md:top-28">
+        <div class="aspect-[2/3] w-full max-w-sm mx-auto bg-navy text-cream rounded-md shadow-2xl flex flex-col items-center justify-center p-8 text-center">
+          <p class="text-xs uppercase tracking-widest text-gold mb-4">Book Cover</p>
+          <p class="font-heading text-3xl leading-tight mb-2">{BOOK_TITLE}</p>
+          <p class="text-sm text-cream/80 italic">{BOOK_SUBTITLE}</p>
+          <p class="text-sm mt-6 text-cream/70">{AUTHOR}</p>
+        </div>
+
+        <div class="mt-6 flex flex-col gap-2 max-w-sm mx-auto">
+          <a
+            href={AMAZON_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block text-center rounded-md bg-gold text-navy font-semibold px-5 py-3 hover:bg-navy hover:text-cream no-underline transition-colors"
+          >
+            Buy on Amazon
+          </a>
+          <a
+            href="/contact"
+            class="block text-center rounded-md border border-navy text-navy px-5 py-3 hover:bg-navy hover:text-cream no-underline transition-colors"
+          >
+            Bulk orders &amp; signed copies
+          </a>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div>
+        <p class="text-gold uppercase tracking-widest text-sm font-semibold mb-3">About the book</p>
+        <h1 class="font-heading text-4xl md:text-5xl text-navy mb-2">{BOOK_TITLE}</h1>
+        <p class="font-heading text-xl md:text-2xl text-ink/80 italic mb-8">{BOOK_SUBTITLE}</p>
+
+        <div class="prose">
+          <p>
+            <em>Learning to Walk with Him</em> tells the unvarnished story of a young missionary
+            who showed up scared, distracted, and reluctant — and slowly learned that
+            discipleship is less about being impressive and more about staying close.
+          </p>
+          <p>
+            Ken Smith weaves personal mission stories with scripture, prayer, and the practical
+            disciplines of a life of faith. Each lesson is a doorway:
+          </p>
+
+          <h3>Inside the book</h3>
+          <ul>
+            <li><strong>Lesson 1 — Faith:</strong> Trusting Him before you can trace Him.</li>
+            <li><strong>Lesson 2 — Focus:</strong> What you give your attention to becomes your life.</li>
+            <li><strong>Lesson 3 — Surrender:</strong> Letting go of the script.</li>
+            <li><strong>Lesson 4 — Repentance:</strong> The mercy of starting again.</li>
+            <li><strong>Lesson 5 — The Savior's Love:</strong> The center that holds.</li>
+          </ul>
+
+          <h3>What readers are saying</h3>
+          <blockquote>
+            "A tender, honest invitation to discipleship. I underlined nearly every page."
+            <br /><span class="text-sm not-italic">— Endorser Name, Title</span>
+          </blockquote>
+          <blockquote>
+            "Ken writes with humility and conviction. This is a book I'll give my own children."
+            <br /><span class="text-sm not-italic">— Endorser Name, Title</span>
+          </blockquote>
+
+          <h3>Details</h3>
+          <ul>
+            <li>Format: Paperback, eBook, Audiobook</li>
+            <li>Pages: ~240</li>
+            <li>Publisher: TBD</li>
+            <li>ISBN: TBD</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
