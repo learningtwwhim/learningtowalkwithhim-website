@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR } from '../consts.js';
+import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR, AMAZON_URL } from '../consts.js';
 ---
 
 <BaseLayout
@@ -28,14 +28,26 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR } from '../consts.js';
           From Reluctant Missionary to Devoted Disciple
         </h1>
         <p class="text-lg md:text-xl text-ink/80 mb-8">
-          Lessons of faith, focus, and the Savior's love — drawn from one missionary's journey,
+          Lessons of faith, focus, and the Savior's love, drawn from one missionary's journey,
           and an invitation to walk with Him in your own.
         </p>
 
+        <!-- Launch banner -->
+        <a
+          href={AMAZON_URL}
+          target="_blank"
+          rel="noopener"
+          class="block bg-navy rounded-lg px-5 py-4 mb-6 no-underline hover:bg-navy/90 transition-colors text-center"
+        >
+          <p class="font-heading text-xl md:text-2xl text-gold m-0 leading-tight">
+            Now available on Amazon: order your copy today.
+          </p>
+          <p class="text-sm text-white/90 mt-1 m-0">
+            Paperback also available June 1st.
+          </p>
+        </a>
+
         <!-- Kit (ConvertKit) email form -->
-        <h2 class="font-heading text-2xl md:text-3xl text-navy mb-4">
-          Get the first chapter free
-        </h2>
         <script async data-uid="a444096c4c" src="https://learning-to-walk-with-him.kit.com/a444096c4c/index.js"></script>
       </div>
     </div>
@@ -48,19 +60,19 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR } from '../consts.js';
         <blockquote class="font-heading text-xl italic leading-snug">
           "A tender, honest invitation to discipleship."
         </blockquote>
-        <figcaption class="mt-2 text-sm text-cream/70">— Endorser Name, Title</figcaption>
+        <figcaption class="mt-2 text-sm text-cream/70">Endorser Name, Title</figcaption>
       </figure>
       <figure class="text-center md:text-left">
         <blockquote class="font-heading text-xl italic leading-snug">
           "Ken writes with humility and conviction."
         </blockquote>
-        <figcaption class="mt-2 text-sm text-cream/70">— Endorser Name, Title</figcaption>
+        <figcaption class="mt-2 text-sm text-cream/70">Endorser Name, Title</figcaption>
       </figure>
       <figure class="text-center md:text-left">
         <blockquote class="font-heading text-xl italic leading-snug">
           "I'll be returning to these lessons for years."
         </blockquote>
-        <figcaption class="mt-2 text-sm text-cream/70">— Endorser Name, Title</figcaption>
+        <figcaption class="mt-2 text-sm text-cream/70">Endorser Name, Title</figcaption>
       </figure>
     </div>
   </section>
@@ -72,7 +84,7 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR } from '../consts.js';
       <p class="text-lg text-ink/85 mb-4">
         <em>Learning to Walk with Him</em> is part memoir, part field guide for discipleship.
         It tells the story of a reluctant young missionary who discovered, slowly and through
-        many missteps, that following the Savior is not about perfect performance — it is
+        many missteps, that following the Savior is not about perfect performance. It is
         about a deepening walk.
       </p>
       <p class="text-lg text-ink/85">
@@ -80,11 +92,11 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR } from '../consts.js';
         scripturally-rooted invitations to walk a little closer to Christ each day.
       </p>
       <ul class="mt-6 space-y-2 text-lg text-ink/85 list-none p-0">
-        <li><strong class="text-navy">Lesson 1</strong> — You never know who you will touch.</li>
-        <li><strong class="text-navy">Lesson 2</strong> — You are sent where you are sent for a reason.</li>
-        <li><strong class="text-navy">Lesson 3</strong> — Keep the Savior's life and ministry as the focus in all you do.</li>
-        <li><strong class="text-navy">Lesson 4</strong> — Don't underestimate the power of prayer and the Lord's love for you.</li>
-        <li><strong class="text-navy">Lesson 5</strong> — Baptisms aren't the focus; the Savior's love is.</li>
+        <li><strong class="text-navy">Lesson 1.</strong> You never know who you will touch.</li>
+        <li><strong class="text-navy">Lesson 2.</strong> You are sent where you are sent for a reason.</li>
+        <li><strong class="text-navy">Lesson 3.</strong> Keep the Savior's life and ministry as the focus in all you do.</li>
+        <li><strong class="text-navy">Lesson 4.</strong> Don't underestimate the power of prayer and the Lord's love for you.</li>
+        <li><strong class="text-navy">Lesson 5.</strong> Baptisms aren't the focus; the Savior's love is.</li>
       </ul>
     </div>
   </section>
@@ -96,7 +108,7 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR } from '../consts.js';
       <ul class="grid md:grid-cols-2 gap-6 list-none p-0">
         <li class="border-l-4 border-gold pl-4">
           <p class="font-heading text-xl text-navy mb-1">Returned and current missionaries</p>
-          <p class="text-ink/80">Anyone who has ever felt unworthy of the calling — and is ready to keep walking anyway.</p>
+          <p class="text-ink/80">Anyone who has ever felt unworthy of the calling, and is ready to keep walking anyway.</p>
         </li>
         <li class="border-l-4 border-gold pl-4">
           <p class="font-heading text-xl text-navy mb-1">Parents and youth leaders</p>
@@ -104,11 +116,11 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR } from '../consts.js';
         </li>
         <li class="border-l-4 border-gold pl-4">
           <p class="font-heading text-xl text-navy mb-1">Disciples in any season</p>
-          <p class="text-ink/80">Whether you're stepping back, starting over, or steady — these lessons meet you where you are.</p>
+          <p class="text-ink/80">Whether you're stepping back, starting over, or steady, these lessons meet you where you are.</p>
         </li>
         <li class="border-l-4 border-gold pl-4">
           <p class="font-heading text-xl text-navy mb-1">Skeptics willing to read with an open heart</p>
-          <p class="text-ink/80">No shame, no pressure — just an invitation to walk and see.</p>
+          <p class="text-ink/80">No shame, no pressure. Just an invitation to walk and see.</p>
         </li>
       </ul>
     </div>
@@ -129,14 +141,19 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR } from '../consts.js';
       <div>
         <h2 class="font-heading text-3xl md:text-4xl text-navy mb-4">About {AUTHOR}</h2>
         <p class="text-lg text-ink/85 mb-4">
-          Ken Smith writes about faith for the long, ordinary middle of the journey. A husband,
-          father, and lifelong student of the scriptures, he served a full-time mission as a
-          young man and has spent the years since learning what it actually means to walk with
-          the Savior — one stubborn, hopeful step at a time.
+          Ken Smith didn't leave on his mission with a burning testimony. He went because he
+          didn't want to break his mother's heart, and because all his friends were going.
+          From 1991 to 1993 he served in the Japan Fukuoka Mission, where the love of
+          President and Sister Figuerres and the patient teaching of the Savior began to
+          reshape a reluctant young missionary into a disciple.
         </p>
         <p class="text-lg text-ink/85 mb-6">
-          He lives with his family and shares short reflections, stories, and scripture studies
-          on the blog and across social media.
+          In the years since, Ken has invested deeply in the faith of young people, serving
+          as a bishop, as a counselor in his stake presidency, and now on a Young Single
+          Adult stake high council alongside his wife. He and his wife live in the Pacific
+          Northwest, where Ken also holds a senior leadership role in technology. Above all
+          else, he is a husband, father, and grandfather. <em>Learning to Walk with Him</em>
+          is his first book.
         </p>
         <a
           href="/about"

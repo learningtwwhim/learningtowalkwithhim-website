@@ -12,7 +12,7 @@ export const AUTHOR = 'Ken Smith';
 export const CONTACT_EMAIL = 'ken@learningtowalkwithhim.com';
 
 // Update this when the book is live on Amazon.
-export const AMAZON_URL = 'https://www.amazon.com/';
+export const AMAZON_URL = 'https://www.amazon.com/dp/B0GY2VSZ9J';
 
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },

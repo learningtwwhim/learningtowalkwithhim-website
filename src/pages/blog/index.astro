@@ -5,7 +5,10 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import { FORMAT_LABELS } from '../../consts.js';
 
 const posts = (await getCollection('blog', ({ data }) => data.draft !== true))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  .sort((a, b) => {
+    if (a.data.pinned !== b.data.pinned) return a.data.pinned ? -1 : 1;
+    return b.data.date.valueOf() - a.data.date.valueOf();
+  });
 ---
 
 <BaseLayout
@@ -19,7 +22,7 @@ const posts = (await getCollection('blog', ({ data }) => data.draft !== true))
         Stories, scripture, and slow walks
       </h1>
       <p class="text-lg text-ink/85 mb-12 max-w-2xl">
-        Short reflections on faith, focus, and the Savior's love. New posts most Mondays.
+        Short reflections on faith, focus, and the Savior's love.
       </p>
 
       {posts.length === 0 && (
