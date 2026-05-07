@@ -12,21 +12,18 @@ import { CONTACT_EMAIL, AUTHOR } from '../consts.js';
       <p class="text-gold uppercase tracking-widest text-sm font-semibold mb-3">Contact</p>
       <h1 class="font-heading text-4xl md:text-5xl text-navy mb-4">Let's talk</h1>
       <p class="text-lg text-ink/85 mb-10">
-        Speaking inquiries, podcast invitations, bulk-order questions, reader notes,
-        or just a hello. Fill out the form below or email
+        Speaking inquiries, podcast invitations, reader notes, or just a hello.
+        Fill out the form below or email
         <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. I read every message.
       </p>
 
-      <!--
-        This form posts to Formspree by default. Replace YOUR_FORM_ID below with your
-        Formspree form ID, or change the action to any other form-handling endpoint
-        (Netlify Forms, Basin, etc.).
-      -->
       <form
-        action="https://formspree.io/f/YOUR_FORM_ID"
+        action="https://formspree.io/f/xzdoarpv"
         method="POST"
         class="grid gap-5 bg-white border border-navy/15 rounded-lg p-6 md:p-8 shadow-sm"
       >
+        <!-- Custom subject line for incoming Formspree emails -->
+        <input type="hidden" name="_subject" value="New message from learningtowalkwithhim.com" />
         <div class="grid md:grid-cols-2 gap-5">
           <label class="block">
             <span class="block text-sm font-medium text-navy mb-1">Name</span>
