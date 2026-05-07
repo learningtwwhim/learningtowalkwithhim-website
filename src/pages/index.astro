@@ -19,6 +19,18 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR, AMAZON_URL } from '../consts.js';
           height="1200"
           class="aspect-[2/3] w-full max-w-sm mx-auto rounded-md shadow-2xl object-cover"
         />
+        <!--
+          Cover artist credit. Update href when McKay shares his Instagram or website.
+          Replace ARTIST_LINK_PLACEHOLDER below with the live URL when ready.
+        -->
+        <p class="mt-4 max-w-sm mx-auto text-center text-sm text-ink/80">
+          Don't you just love this book cover? It was created by the incredibly talented
+          <strong class="text-navy">McKay Fife</strong>. The rest of his work is just as good.
+          <a
+            href="ARTIST_LINK_PLACEHOLDER"
+            class="text-navy underline hover:text-gold font-medium"
+          >Go see for yourself</a>.
+        </p>
       </div>
 
       <!-- Headline + email form -->
@@ -49,40 +61,51 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR, AMAZON_URL } from '../consts.js';
 
         <!-- Free guide intro -->
         <h2 class="font-heading text-2xl md:text-3xl text-navy mb-3 leading-tight">
-          Get the free Five Lessons Guide
+          Built for the Journey
         </h2>
-        <p class="text-base md:text-lg text-ink/80 mb-5">
-          A printable one-page companion to the book. Each lesson includes a key scripture,
-          a question to reflect on, and an invitation to act. Missionaries tuck it in their
-          scriptures. Parents put it on the fridge. Yours free when you join.
+        <p class="text-base md:text-lg text-ink/80 mb-3">
+          This is more than a newsletter. When you join, you get the Five Lessons Guide
+          today and everything I create going forward. Practical resources built for:
         </p>
+        <ul class="list-disc pl-6 text-base md:text-lg text-ink/80 mb-3 space-y-1">
+          <li>Those still deciding if they want to serve</li>
+          <li>Those currently serving</li>
+          <li>Those just returned home</li>
+          <li>The parents that pray for them</li>
+          <li>Leaders walking alongside them</li>
+          <li>Anyone still learning to walk with Him</li>
+        </ul>
+        <p class="text-base md:text-lg text-ink/80 mb-5">Free. Always yours.</p>
 
         <!-- Kit (ConvertKit) email form -->
         <script async data-uid="a444096c4c" src="https://learning-to-walk-with-him.kit.com/a444096c4c/index.js"></script>
+        <p class="mt-3 text-base md:text-lg text-center" style="color: #2c2c2c;">
+          I'll also send you occasional letters. Unsubscribe anytime.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ENDORSEMENTS STRIP -->
+  <!-- FROM THE BOOK -->
   <section class="bg-navy text-cream">
     <div class="mx-auto max-w-6xl px-4 py-12 grid gap-8 md:grid-cols-3">
       <figure class="text-center md:text-left">
         <blockquote class="font-heading text-xl italic leading-snug">
-          "A tender, honest invitation to discipleship."
+          "God doesn't waste anyone's willingness to try."
         </blockquote>
-        <figcaption class="mt-2 text-sm text-cream/70">Endorser Name, Title</figcaption>
+        <figcaption class="mt-2 text-sm text-cream/70"><em>Learning to Walk with Him</em></figcaption>
       </figure>
       <figure class="text-center md:text-left">
         <blockquote class="font-heading text-xl italic leading-snug">
-          "Ken writes with humility and conviction."
+          "The Lord measures your offering, not your timeline."
         </blockquote>
-        <figcaption class="mt-2 text-sm text-cream/70">Endorser Name, Title</figcaption>
+        <figcaption class="mt-2 text-sm text-cream/70"><em>Learning to Walk with Him</em></figcaption>
       </figure>
       <figure class="text-center md:text-left">
         <blockquote class="font-heading text-xl italic leading-snug">
-          "I'll be returning to these lessons for years."
+          "If He can work with me, He can work with you."
         </blockquote>
-        <figcaption class="mt-2 text-sm text-cream/70">Endorser Name, Title</figcaption>
+        <figcaption class="mt-2 text-sm text-cream/70"><em>Learning to Walk with Him</em></figcaption>
       </figure>
     </div>
   </section>
