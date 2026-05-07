@@ -14,9 +14,13 @@ import { AUTHOR } from '../consts.js';
 
       <div class="grid md:grid-cols-[1fr_2fr] gap-10 items-start">
         <div>
-          <div class="aspect-square w-full max-w-xs rounded-md bg-green/20 border-4 border-green/30 flex items-center justify-center">
-            <span class="text-green font-heading text-xl">Author Photo</span>
-          </div>
+          <img
+            src="/img_1996.PNG"
+            alt={`Photo of ${AUTHOR}`}
+            width="600"
+            height="600"
+            class="aspect-square w-full max-w-xs rounded-md object-cover border-4 border-green/30"
+          />
         </div>
 
         <div class="prose">

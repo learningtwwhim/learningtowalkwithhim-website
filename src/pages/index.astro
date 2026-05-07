@@ -10,17 +10,15 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR } from '../consts.js';
   <!-- HERO -->
   <section class="bg-cream">
     <div class="mx-auto max-w-6xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-      <!-- Book cover placeholder -->
+      <!-- Book cover -->
       <div class="order-2 md:order-1">
-        <div class="aspect-[2/3] w-full max-w-sm mx-auto bg-navy text-cream rounded-md shadow-2xl flex flex-col items-center justify-center p-8 text-center">
-          <p class="text-xs uppercase tracking-widest text-gold mb-4">Book Cover</p>
-          <p class="font-heading text-3xl leading-tight mb-2">{BOOK_TITLE}</p>
-          <p class="text-sm text-cream/80 italic">{BOOK_SUBTITLE}</p>
-          <p class="text-sm mt-6 text-cream/70">{AUTHOR}</p>
-          <p class="text-[10px] uppercase tracking-widest text-cream/50 mt-8">
-            Replace /public/book-cover.jpg
-          </p>
-        </div>
+        <img
+          src="/book-cover.jpg"
+          alt={`Cover of ${BOOK_TITLE} by ${AUTHOR}`}
+          width="800"
+          height="1200"
+          class="aspect-[2/3] w-full max-w-sm mx-auto rounded-md shadow-2xl object-cover"
+        />
       </div>
 
       <!-- Headline + email form -->
@@ -34,40 +32,11 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR } from '../consts.js';
           and an invitation to walk with Him in your own.
         </p>
 
-        <!-- ConvertKit email form placeholder -->
-        <form
-          action="https://app.kit.com/forms/REPLACE_ME/subscriptions"
-          method="post"
-          data-sv-form="REPLACE_ME"
-          data-uid="REPLACE_ME"
-          class="bg-white border border-navy/15 rounded-lg p-5 md:p-6 shadow-sm"
-        >
-          <label for="ck-email" class="block font-heading text-xl text-navy mb-2">
-            Get the first chapter free
-          </label>
-          <p class="text-sm text-ink/70 mb-4">
-            Join the email list for new posts, book updates, and the prologue delivered to your inbox.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-2">
-            <input
-              id="ck-email"
-              type="email"
-              name="email_address"
-              required
-              placeholder="you@example.com"
-              class="flex-1 rounded-md border border-navy/20 px-3 py-2 bg-cream/30 text-ink focus:outline-none focus:ring-2 focus:ring-gold"
-            />
-            <button
-              type="submit"
-              class="rounded-md bg-navy text-cream px-5 py-2 font-medium hover:bg-gold hover:text-navy transition-colors"
-            >
-              Send it to me
-            </button>
-          </div>
-          <p class="text-xs text-ink/60 mt-3">
-            No spam. Unsubscribe anytime. See our <a href="/privacy" class="underline">privacy policy</a>.
-          </p>
-        </form>
+        <!-- Kit (ConvertKit) email form -->
+        <h2 class="font-heading text-2xl md:text-3xl text-navy mb-4">
+          Get the first chapter free
+        </h2>
+        <script async data-uid="a444096c4c" src="https://learning-to-walk-with-him.kit.com/a444096c4c/index.js"></script>
       </div>
     </div>
   </section>
@@ -107,10 +76,16 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR } from '../consts.js';
         about a deepening walk.
       </p>
       <p class="text-lg text-ink/85">
-        Through five lessons — on faith, focus, surrender, repentance, and the Savior's love —
-        Ken offers practical, scripturally-rooted invitations to walk a little closer to Christ
-        each day.
+        Through five lessons drawn from the mission field, Ken offers practical,
+        scripturally-rooted invitations to walk a little closer to Christ each day.
       </p>
+      <ul class="mt-6 space-y-2 text-lg text-ink/85 list-none p-0">
+        <li><strong class="text-navy">Lesson 1</strong> — You never know who you will touch.</li>
+        <li><strong class="text-navy">Lesson 2</strong> — You are sent where you are sent for a reason.</li>
+        <li><strong class="text-navy">Lesson 3</strong> — Keep the Savior's life and ministry as the focus in all you do.</li>
+        <li><strong class="text-navy">Lesson 4</strong> — Don't underestimate the power of prayer and the Lord's love for you.</li>
+        <li><strong class="text-navy">Lesson 5</strong> — Baptisms aren't the focus; the Savior's love is.</li>
+      </ul>
     </div>
   </section>
 
@@ -143,9 +118,13 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR } from '../consts.js';
   <section class="bg-cream">
     <div class="mx-auto max-w-4xl px-4 py-16 md:py-20 grid md:grid-cols-[1fr_2fr] gap-10 items-start">
       <div>
-        <div class="aspect-square w-48 rounded-full bg-green/20 border-4 border-green/30 mx-auto md:mx-0 flex items-center justify-center">
-          <span class="text-green font-heading text-xl">Author Photo</span>
-        </div>
+        <img
+          src="/img_1996.PNG"
+          alt={`Photo of ${AUTHOR}`}
+          width="400"
+          height="400"
+          class="aspect-square w-48 rounded-full object-cover border-4 border-green/30 mx-auto md:mx-0"
+        />
       </div>
       <div>
         <h2 class="font-heading text-3xl md:text-4xl text-navy mb-4">About {AUTHOR}</h2>
