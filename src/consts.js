@@ -25,9 +25,7 @@ export const NAV_LINKS = [
 
 export const SOCIAL_LINKS = [
   { name: 'Instagram', href: 'https://instagram.com/learningtowalkwithhim' },
-  { name: 'TikTok', href: 'https://tiktok.com/@learningtowalkwithhim' },
   { name: 'Facebook', href: 'https://facebook.com/learningtowalkwithhim' },
-  { name: 'YouTube', href: 'https://youtube.com/@learningtowalkwithhim' },
 ];
 
 // Map blog frontmatter `format` values to friendly labels.
