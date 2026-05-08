@@ -3,8 +3,12 @@ import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
-  // Don't generate routes for draft posts.
-  const posts = await getCollection('blog', ({ data }) => data.draft !== true);
+  // Don't generate routes for draft posts or future-dated posts.
+  const now = new Date();
+  const posts = await getCollection(
+    'blog',
+    ({ data }) => data.draft !== true && data.date <= now
+  );
   return posts.map((post) => ({
     params: { slug: post.id },
     props: post,

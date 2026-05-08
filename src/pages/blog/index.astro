@@ -4,11 +4,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { FORMAT_LABELS } from '../../consts.js';
 
-const posts = (await getCollection('blog', ({ data }) => data.draft !== true))
-  .sort((a, b) => {
-    if (a.data.pinned !== b.data.pinned) return a.data.pinned ? -1 : 1;
-    return b.data.date.valueOf() - a.data.date.valueOf();
-  });
+const now = new Date();
+const posts = (
+  await getCollection(
+    'blog',
+    ({ data }) => data.draft !== true && data.date <= now
+  )
+).sort((a, b) => {
+  if (a.data.pinned !== b.data.pinned) return a.data.pinned ? -1 : 1;
+  return b.data.date.valueOf() - a.data.date.valueOf();
+});
 ---
 
 <BaseLayout
