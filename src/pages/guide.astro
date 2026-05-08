@@ -1,0 +1,171 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+
+const title = 'Your Free Five Lessons Guide';
+const description =
+  'Five lessons from the mission field. One reflection question each. One invitation to act. Free, always.';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body class="min-h-screen bg-cream text-ink">
+    <main class="mx-auto max-w-2xl px-6 py-8 md:py-12">
+      <!-- Logo -->
+      <div class="text-center mb-6 md:mb-8">
+        <img
+          src="/Learning_to_Walk_with_Him_Logo.PNG"
+          alt="Learning to Walk with Him"
+          width="240"
+          height="240"
+          style="display:inline-block;height:auto;width:240px;max-width:60%;"
+        />
+      </div>
+
+      <!-- Headline -->
+      <h1 class="font-heading text-4xl md:text-5xl text-navy leading-tight text-center mb-4">
+        Your Free Five Lessons Guide Is Here
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-lg md:text-xl text-ink/80 text-center mb-10 md:mb-12">
+        Five lessons from the mission field. One reflection question each. One
+        invitation to act. Free, always.
+      </p>
+
+      <!-- Description -->
+      <p class="text-base md:text-lg text-ink/85 mb-4 leading-relaxed">
+        These five lessons came from two years in Japan, most of them learned the
+        hard way. They are not a checklist. They are an invitation to walk a
+        little closer to the Savior.
+      </p>
+
+      <!-- Five lessons -->
+      <ol class="list-decimal pl-6 text-base md:text-lg text-ink/85 mb-10 md:mb-12 space-y-2 leading-relaxed">
+        <li>You never know who you will touch.</li>
+        <li>You are sent where you are sent for a reason.</li>
+        <li>Keep the Savior's life and ministry as the focus in all you do.</li>
+        <li>Don't underestimate the power of prayer and the Lord's love for you.</li>
+        <li>Baptisms aren't the focus. The Savior's love is.</li>
+      </ol>
+
+      <!-- Subscribe form -->
+      <form
+        id="kit-subscribe-form"
+        action="https://app.kit.com/forms/9413345/subscriptions"
+        method="post"
+        class="space-y-3"
+        novalidate
+      >
+        <label class="block">
+          <span class="sr-only">First name</span>
+          <input
+            type="text"
+            name="fields[first_name]"
+            placeholder="First name"
+            required
+            class="w-full rounded-md border border-ink/20 bg-white px-4 py-3 text-base text-ink placeholder-ink/50 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40"
+          />
+        </label>
+        <label class="block">
+          <span class="sr-only">Email address</span>
+          <input
+            type="email"
+            name="email_address"
+            placeholder="Email address"
+            required
+            autocomplete="email"
+            class="w-full rounded-md border border-ink/20 bg-white px-4 py-3 text-base text-ink placeholder-ink/50 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40"
+          />
+        </label>
+        <!-- honeypot -->
+        <input
+          type="text"
+          name="hp_field"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+          style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"
+        />
+        <button
+          type="submit"
+          class="w-full rounded-md bg-gold px-6 py-3 text-base font-semibold text-white hover:bg-gold/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          Send Me the Guide
+        </button>
+        <p
+          id="kit-subscribe-error"
+          class="hidden mt-2 text-sm text-red-700"
+          role="alert"
+        ></p>
+      </form>
+
+      <div
+        id="kit-subscribe-success"
+        class="hidden rounded-md border border-green/30 bg-green/10 p-6 text-center"
+        role="status"
+      >
+        <p class="font-heading text-2xl md:text-3xl text-navy mb-2">Thank you!</p>
+        <p class="text-base md:text-lg text-ink/85">
+          Check your email for the Five Lessons Guide. If you don't see it, take
+          a peek in the promotions or spam folder.
+        </p>
+      </div>
+    </main>
+
+    <script is:inline>
+      (function () {
+        var form = document.getElementById('kit-subscribe-form');
+        var success = document.getElementById('kit-subscribe-success');
+        var errorEl = document.getElementById('kit-subscribe-error');
+        if (!form) return;
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          errorEl.classList.add('hidden');
+          errorEl.textContent = '';
+
+          if (form.hp_field && form.hp_field.value) {
+            form.reset();
+            form.classList.add('hidden');
+            success.classList.remove('hidden');
+            return;
+          }
+
+          var btn = form.querySelector('button[type="submit"]');
+          var originalLabel = btn.textContent;
+          btn.disabled = true;
+          btn.textContent = 'Sending...';
+
+          var data = new FormData(form);
+          fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { Accept: 'application/json' },
+          })
+            .then(function (res) {
+              if (!res.ok) throw new Error('Subscription failed');
+              return res.json().catch(function () { return {}; });
+            })
+            .then(function () {
+              form.reset();
+              form.classList.add('hidden');
+              success.classList.remove('hidden');
+              if (success.scrollIntoView) {
+                success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }
+            })
+            .catch(function () {
+              errorEl.textContent =
+                "Something went wrong. Please try again, or email ken@learningtowalkwithhim.com.";
+              errorEl.classList.remove('hidden');
+              btn.disabled = false;
+              btn.textContent = originalLabel;
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>
