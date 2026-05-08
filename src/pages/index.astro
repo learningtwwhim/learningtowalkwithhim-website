@@ -1,6 +1,52 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR, AMAZON_URL } from '../consts.js';
+
+// Rotating quotes from the book. Picks change every 2 days.
+// Each rotation always includes one Savior-pointing quote plus two general lessons.
+const SAVIOR_QUOTES = [
+  "He is a Savior close enough to catch you when you begin to sink.",
+  "If He could trust the Father's plan even when it led to the cross, you can trust it too.",
+  "When you make the Savior the center of your mission, your mission becomes what it was meant to be.",
+  "Keep walking with Him.",
+  "The Savior gave everything. He held nothing back.",
+  "He doesn't abandon you when you struggle. He reaches out, lifts you up, and walks beside you until you're safe.",
+  "He is your anchor, your example, your source of strength.",
+  "Your mission isn't about you. It's about Him.",
+];
+
+const OTHER_QUOTES = [
+  "God doesn't waste anyone's willingness to try.",
+  "If God can work with someone like me, He can work with anyone.",
+  "The Lord measures your offering, not your timeline.",
+  "He doesn't waste your service.",
+  "Treat everyone like they matter. Because they do.",
+  "Your job is to plant, not to control the growth.",
+  "Goals are meant to motivate you, not define you.",
+  "Pride dressed up as patience is still pride.",
+  "The Lord is not making mistakes with your assignments.",
+  'Instead of asking, "Why am I here?" try, "What is here for me?"',
+  "When you obsess over numbers, you stop seeing people.",
+  "You don't convert people. The Spirit does.",
+  "Your job isn't to have all the answers. It's to be a conduit for the Spirit.",
+  "Awareness is the first step toward change.",
+  "Obedience, even reluctant obedience, is always worth it.",
+];
+
+function pickQuotes(dayIndex) {
+  const period = Math.floor(dayIndex / 2);
+  const savior = SAVIOR_QUOTES[period % SAVIOR_QUOTES.length];
+  const otherStart = (period * 2) % OTHER_QUOTES.length;
+  const otherA = OTHER_QUOTES[otherStart];
+  const otherB = OTHER_QUOTES[(otherStart + 1) % OTHER_QUOTES.length];
+  // Savior quote sits in the middle slot for visual emphasis.
+  return [otherA, savior, otherB];
+}
+
+const _now = new Date();
+const _start = new Date(_now.getFullYear(), 0, 0);
+const _dayOfYear = Math.floor((_now - _start) / 86400000);
+const initialQuotes = pickQuotes(_dayOfYear);
 ---
 
 <BaseLayout
@@ -49,10 +95,10 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR, AMAZON_URL } from '../consts.js';
           rel="noopener"
           class="block bg-navy rounded-lg px-5 py-4 mb-6 no-underline hover:bg-navy/90 transition-colors text-center"
         >
-          <p class="font-heading text-xl md:text-2xl text-gold m-0 leading-tight">
+          <p class="font-heading font-bold text-2xl md:text-3xl text-gold m-0 leading-tight tracking-wide">
             Now available on Amazon: order your copy today.
           </p>
-          <p class="text-sm text-white/90 mt-1 m-0">
+          <p class="text-base text-white mt-2 m-0 font-medium">
             Paperback also available June 1st.
           </p>
         </a>
@@ -86,27 +132,35 @@ import { BOOK_TITLE, BOOK_SUBTITLE, AUTHOR, AMAZON_URL } from '../consts.js';
 
   <!-- FROM THE BOOK -->
   <section class="bg-navy text-cream">
-    <div class="mx-auto max-w-6xl px-4 py-12 grid gap-8 md:grid-cols-3">
-      <figure class="text-center md:text-left">
-        <blockquote class="font-heading text-xl italic leading-snug">
-          "God doesn't waste anyone's willingness to try."
-        </blockquote>
-        <figcaption class="mt-2 text-sm text-cream/70"><em>Learning to Walk with Him</em></figcaption>
-      </figure>
-      <figure class="text-center md:text-left">
-        <blockquote class="font-heading text-xl italic leading-snug">
-          "The Lord measures your offering, not your timeline."
-        </blockquote>
-        <figcaption class="mt-2 text-sm text-cream/70"><em>Learning to Walk with Him</em></figcaption>
-      </figure>
-      <figure class="text-center md:text-left">
-        <blockquote class="font-heading text-xl italic leading-snug">
-          "If He can work with me, He can work with you."
-        </blockquote>
-        <figcaption class="mt-2 text-sm text-cream/70"><em>Learning to Walk with Him</em></figcaption>
-      </figure>
+    <div id="rotating-quotes" class="mx-auto max-w-6xl px-4 py-12 grid gap-8 md:grid-cols-3">
+      {initialQuotes.map((q) => (
+        <figure class="text-center md:text-left">
+          <blockquote class="font-heading text-xl italic leading-snug">
+            "{q}"
+          </blockquote>
+          <figcaption class="mt-2 text-sm text-cream/70"><em>Learning to Walk with Him</em></figcaption>
+        </figure>
+      ))}
     </div>
   </section>
+
+  <script is:inline define:vars={{ SAVIOR_QUOTES, OTHER_QUOTES }}>
+    (function () {
+      var now = new Date();
+      var start = new Date(now.getFullYear(), 0, 0);
+      var day = Math.floor((now - start) / 86400000);
+      var period = Math.floor(day / 2);
+      var savior = SAVIOR_QUOTES[period % SAVIOR_QUOTES.length];
+      var otherStart = (period * 2) % OTHER_QUOTES.length;
+      var otherA = OTHER_QUOTES[otherStart];
+      var otherB = OTHER_QUOTES[(otherStart + 1) % OTHER_QUOTES.length];
+      var picks = [otherA, savior, otherB];
+      var blocks = document.querySelectorAll('#rotating-quotes blockquote');
+      blocks.forEach(function (el, i) {
+        if (picks[i]) el.textContent = '"' + picks[i] + '"';
+      });
+    })();
+  </script>
 
   <!-- WHAT THE BOOK IS -->
   <section class="bg-cream">
