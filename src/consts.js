@@ -19,7 +19,7 @@ export const NAV_LINKS = [
   { href: '/book', label: 'The Book' },
   { href: '/blog', label: 'Blog' },
   { href: '/about', label: 'About' },
-  { href: '/speaking', label: 'Speaking' },
+  // { href: '/speaking', label: 'Speaking' }, // Hidden from top nav for now. Uncomment to re-enable. Page still lives at /speaking.
   { href: '/contact', label: 'Contact' },
 ];
 
