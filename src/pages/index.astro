@@ -93,13 +93,13 @@ const initialQuotes = pickQuotes(_dayOfYear);
           href={AMAZON_URL}
           target="_blank"
           rel="noopener"
-          class="block bg-navy rounded-lg px-5 py-4 mb-6 no-underline hover:bg-navy/90 transition-colors text-center"
+          class="launch-banner launch-pulse block rounded-lg px-5 py-5 mb-6 no-underline text-center shadow-lg ring-2 ring-navy/20"
         >
-          <p class="font-heading font-bold text-2xl md:text-3xl text-gold m-0 leading-tight tracking-wide">
-            Now available on Amazon: order your copy today.
+          <p class="font-heading font-bold text-3xl md:text-4xl text-navy m-0 leading-tight tracking-wide">
+            Releasing Monday
           </p>
-          <p class="text-base text-white mt-2 m-0 font-medium">
-            Paperback also available June 1st.
+          <p class="text-base md:text-lg text-navy mt-2 m-0 font-semibold">
+            Pre-order the eBook on Amazon now. Paperback and eBook both release Monday, May 18.
           </p>
         </a>
 
@@ -366,3 +366,34 @@ const initialQuotes = pickQuotes(_dayOfYear);
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .launch-banner {
+    background: linear-gradient(135deg, #d99c3a 0%, #c9892a 50%, #b07820 100%);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .launch-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(27, 58, 92, 0.25);
+  }
+  .launch-pulse {
+    animation: launch-pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes launch-pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(201, 137, 42, 0.7), 0 4px 12px rgba(27, 58, 92, 0.15);
+    }
+    50% {
+      transform: scale(1.03);
+      box-shadow: 0 0 0 14px rgba(201, 137, 42, 0), 0 8px 20px rgba(27, 58, 92, 0.25);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(201, 137, 42, 0), 0 4px 12px rgba(27, 58, 92, 0.15);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .launch-pulse { animation: none; }
+  }
+</style>
