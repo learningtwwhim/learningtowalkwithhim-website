@@ -2,8 +2,7 @@
 title: "Why I wrote this book"
 date: 2026-05-06
 format: behind
-pinned: true
-excerpt: "It started as a letter to my sister. Then it sat in a drawer. Then a prompting showed up — and I ignored it for far longer than I should have."
+excerpt: "It started as a letter to my sister. Then it sat in a drawer. Then a prompting showed up, and I ignored it for far longer than I should have."
 draft: false
 ---
 

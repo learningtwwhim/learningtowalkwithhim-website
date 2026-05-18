@@ -1,6 +1,6 @@
 ---
 title: "He doesn't assign you to a place. He assigns you to a person."
-date: 2026-06-08
+date: 2026-06-01
 format: story
 excerpt: "I was transferred before I ever saw her baptism. Years later I finally understood why I was sent there at all."
 draft: false

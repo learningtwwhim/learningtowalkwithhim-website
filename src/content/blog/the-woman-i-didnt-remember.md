@@ -1,6 +1,6 @@
 ---
 title: "The woman I didn't remember"
-date: 2026-06-01
+date: 2026-05-25
 format: story
 excerpt: "I had no idea that afternoon meant anything. The Savior did."
 draft: false

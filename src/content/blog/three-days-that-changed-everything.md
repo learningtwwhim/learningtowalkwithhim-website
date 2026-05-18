@@ -1,6 +1,6 @@
 ---
 title: "The three days that changed everything"
-date: 2026-06-15
+date: 2026-06-08
 format: story
 excerpt: "We did not baptize anyone. They were still the best three days of my entire mission."
 draft: false
