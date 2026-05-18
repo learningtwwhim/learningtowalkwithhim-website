@@ -6,8 +6,15 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 <header class="sticky top-0 z-40 bg-cream/95 backdrop-blur border-b border-navy/10">
   <nav class="mx-auto max-w-6xl flex items-center justify-between px-4 py-4 md:py-5">
-    <a href="/" class="font-heading text-2xl md:text-4xl font-semibold text-navy no-underline">
-      {SITE_TITLE}
+    <a href="/" class="flex items-center gap-2 md:gap-3 font-heading text-2xl md:text-4xl font-semibold text-navy no-underline">
+      <img
+        src="/Learning_to_Walk_with_Him_Logo.PNG"
+        alt=""
+        class="h-16 md:h-24 w-auto rounded-xl"
+        loading="eager"
+        decoding="async"
+      />
+      <span>{SITE_TITLE}</span>
     </a>
 
     <button
